@@ -34,47 +34,47 @@
       <!-- Timeblocks go here -->
       <div id="row1" class="row">
         <h2 class="hour">  9AM</h2>
-        <textarea class="inp-width past"></textarea>
+        <textarea id="9" data-index="0" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row2" class="row">
         <h2 class="hour">10AM</h2>
-        <textarea class="inp-width past"></textarea>
+        <textarea id="10" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row3" class="row">
         <h2 class="hour">11AM</h2>
-        <textarea class="inp-width past"></textarea>
+        <textarea id="11" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row4" class="row">
         <h2 class="hour">12PM</h2>
-        <textarea class="inp-width past"></textarea>
+        <textarea id="12" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row5" class="row">
         <h2 class="hour">  1PM</h2>
-        <textarea class="inp-width past"></textarea>
+        <textarea id="13" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row6" class="row">
         <h2 class="hour">  2PM</h2>
-        <textarea class="inp-width past"></textarea>
+        <textarea id="14" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row7" class="row">
         <h2 class="hour">  3PM</h2>
-        <textarea class="inp-width past"></textarea>
+        <textarea id="15" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row8" class="row">
         <h2 class="hour">  4PM</h2>
-        <textarea class="inp-width past"></textarea>
+        <textarea id="16" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row9" class="row">
         <h2 class="hour">  5PM</h2>
-        <textarea class="inp-width past"></textarea>
+        <textarea id="17" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <!-- Timeblocks end here -->
@@ -89,7 +89,9 @@
       var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
       $("#currentDay").text((days[(new Date()).getDay()]) + ", " + (months[(new Date()).getMonth()]) + " " + (new Date().getDate()))
 
-      
+      // changes the background color of the text fields as the hour changes
+      var txt1 = $("#9")
+      console.log(txt1.attr("data-index"))
 
     </script>
   </body>
