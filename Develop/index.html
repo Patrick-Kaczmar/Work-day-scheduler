@@ -28,8 +28,56 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
+
+
     <div class="container">
       <!-- Timeblocks go here -->
+      <div id="row1" class="row">
+        <h2 class="hour">  9AM</h2>
+        <textarea class="inp-width past"></textarea>
+        <button class="saveBtn">SAVE PLANS</button>
+      </div>
+      <div id="row2" class="row">
+        <h2 class="hour">10AM</h2>
+        <textarea class="inp-width past"></textarea>
+        <button class="saveBtn">SAVE PLANS</button>
+      </div>
+      <div id="row3" class="row">
+        <h2 class="hour">11AM</h2>
+        <textarea class="inp-width past"></textarea>
+        <button class="saveBtn">SAVE PLANS</button>
+      </div>
+      <div id="row4" class="row">
+        <h2 class="hour">12PM</h2>
+        <textarea class="inp-width past"></textarea>
+        <button class="saveBtn">SAVE PLANS</button>
+      </div>
+      <div id="row5" class="row">
+        <h2 class="hour">  1PM</h2>
+        <textarea class="inp-width past"></textarea>
+        <button class="saveBtn">SAVE PLANS</button>
+      </div>
+      <div id="row6" class="row">
+        <h2 class="hour">  2PM</h2>
+        <textarea class="inp-width past"></textarea>
+        <button class="saveBtn">SAVE PLANS</button>
+      </div>
+      <div id="row7" class="row">
+        <h2 class="hour">  3PM</h2>
+        <textarea class="inp-width past"></textarea>
+        <button class="saveBtn">SAVE PLANS</button>
+      </div>
+      <div id="row8" class="row">
+        <h2 class="hour">  4PM</h2>
+        <textarea class="inp-width past"></textarea>
+        <button class="saveBtn">SAVE PLANS</button>
+      </div>
+      <div id="row9" class="row">
+        <h2 class="hour">  5PM</h2>
+        <textarea class="inp-width past"></textarea>
+        <button class="saveBtn">SAVE PLANS</button>
+      </div>
+      <!-- Timeblocks end here -->
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -41,7 +89,7 @@
       var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
       $("#currentDay").text((days[(new Date()).getDay()]) + ", " + (months[(new Date()).getMonth()]) + " " + (new Date().getDate()))
 
-
+      
 
     </script>
   </body>
