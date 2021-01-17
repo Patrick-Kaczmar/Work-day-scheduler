@@ -37,9 +37,10 @@
 
     <script>
       // setting the current date to the header <p> tag with the id of currentDay
-      $("#currentDay").text(moment().format('dddd') + " - " + moment().format("MMM Do YYYY"));
+      var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+      $("#currentDay").text((days[(new Date()).getDay()]) + ", " + (months[(new Date()).getMonth()]) + " " + (new Date().getDate()))
 
-      
 
 
     </script>
