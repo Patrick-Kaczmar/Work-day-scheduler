@@ -31,50 +31,50 @@
 
 
     <div class="container">
-      <!-- Timeblocks go here -->
+      <!-- Timeblocks start here -->
       <div id="row1" class="row">
         <h2 class="hour">  9AM</h2>
-        <textarea id="9" data-index="0" class="inp-width"></textarea>
+        <textarea id="9" data-index="9" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row2" class="row">
         <h2 class="hour">10AM</h2>
-        <textarea id="10" class="inp-width"></textarea>
+        <textarea id="10" data-index="10" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row3" class="row">
         <h2 class="hour">11AM</h2>
-        <textarea id="11" class="inp-width"></textarea>
+        <textarea id="11" data-index="11" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row4" class="row">
         <h2 class="hour">12PM</h2>
-        <textarea id="12" class="inp-width"></textarea>
+        <textarea id="12" data-index="12" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row5" class="row">
         <h2 class="hour">  1PM</h2>
-        <textarea id="13" class="inp-width"></textarea>
+        <textarea id="13" data-index="13" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row6" class="row">
         <h2 class="hour">  2PM</h2>
-        <textarea id="14" class="inp-width"></textarea>
+        <textarea id="14" data-index="14" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row7" class="row">
         <h2 class="hour">  3PM</h2>
-        <textarea id="15" class="inp-width"></textarea>
+        <textarea id="15" data-index="15" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row8" class="row">
         <h2 class="hour">  4PM</h2>
-        <textarea id="16" class="inp-width"></textarea>
+        <textarea id="16" data-index="16" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <div id="row9" class="row">
         <h2 class="hour">  5PM</h2>
-        <textarea id="17" class="inp-width"></textarea>
+        <textarea id="17" data-index="17" class="inp-width"></textarea>
         <button class="saveBtn">SAVE PLANS</button>
       </div>
       <!-- Timeblocks end here -->
@@ -91,7 +91,28 @@
 
       // changes the background color of the text fields as the hour changes
       var txt1 = $("#9")
-      console.log(txt1.attr("data-index"))
+      var txtClass = $(".inp-width")
+      console.log(parseInt($("textarea").attr("data-index")))
+      console.log(new Date().getHours())
+      var currentHour = new Date().getHours()
+// create variables for each data index and make them numbers
+      var area9 = parseInt($("#9").attr("data-index"))
+      var area10 = parseInt($("#10").attr("data-index"))
+      var area11 = parseInt($("#11").attr("data-index"))
+      var area12 = parseInt($("#12").attr("data-index"))
+      var area13 = parseInt($("#13").attr("data-index"))
+      var area14 = parseInt($("#14").attr("data-index"))
+      var area15 = parseInt($("#15").attr("data-index"))
+      var area16 = parseInt($("#16").attr("data-index"))
+      var area17 = parseInt($("#17").attr("data-index"))
+
+      var hourArray = [area9, area10, area11, area12, area13, area14, area15, area16, area17]
+      
+      for (i = 0; i < hourArray.length; i++) {
+        console.log(hourArray[i])
+      }
+
+      
 
     </script>
   </body>
