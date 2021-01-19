@@ -96,22 +96,30 @@
       console.log(new Date().getHours())
       var currentHour = new Date().getHours()
 // create variables for each data index and make them numbers
-      var area9 = parseInt($("#9").attr("data-index"))
-      var area10 = parseInt($("#10").attr("data-index"))
-      var area11 = parseInt($("#11").attr("data-index"))
-      var area12 = parseInt($("#12").attr("data-index"))
-      var area13 = parseInt($("#13").attr("data-index"))
-      var area14 = parseInt($("#14").attr("data-index"))
-      var area15 = parseInt($("#15").attr("data-index"))
-      var area16 = parseInt($("#16").attr("data-index"))
-      var area17 = parseInt($("#17").attr("data-index"))
+      var area9 = ($("#9"))
+      var area10 = ($("#10"))
+      var area11 = ($("#11"))
+      var area12 = ($("#12"))
+      var area13 = ($("#13"))
+      var area14 = ($("#14"))
+      var area15 = ($("#15"))
+      var area16 = ($("#16"))
+      var area17 = ($("#17"))
 
       var hourArray = [area9, area10, area11, area12, area13, area14, area15, area16, area17]
       
       for (i = 0; i < hourArray.length; i++) {
         console.log(hourArray[i])
+        if (parseInt(hourArray[i].attr("data-index")) < currentHour) {
+          hourArray[i].addClass("past")
+        }
+        if (parseInt(hourArray[i].attr("data-index")) == currentHour) {
+          hourArray[i].addClass("present")
+        }
+        if (parseInt(hourArray[i].attr("data-index")) > currentHour) {
+          hourArray[i].addClass("future")
+        }
       }
-
       
 
     </script>
