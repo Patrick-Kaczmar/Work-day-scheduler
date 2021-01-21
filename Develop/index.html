@@ -103,7 +103,7 @@
       console.log(parseInt($("textarea").attr("data-index")))
       console.log(new Date().getHours())
       var currentHour = new Date().getHours()
-// create variables linked to each textarea tag
+      // create variables linked to each textarea tag
       var area9 = ($("#9"))
       var area10 = ($("#10"))
       var area11 = ($("#11"))
@@ -113,7 +113,7 @@
       var area15 = ($("#15"))
       var area16 = ($("#16"))
       var area17 = ($("#17"))
-        // creates a array of all the variables that were just made
+      // creates a array of all the variables that were just made
       var hourArray = [area9, area10, area11, area12, area13, area14, area15, area16, area17]
       // loops through all the variables and checks if their data index is greater, lessthan or equal to the current hour and assigns the appropriet class 
       for (i = 0; i < hourArray.length; i++) {
@@ -129,7 +129,39 @@
         }
       }
 
+      $(".saveBtn").on("click", function(event) {
+        var user = {
+          time9: area9.val(),
+          time10: area10.val(),
+          time11: area11.val(),
+          time12: area12.val(),
+          time1: area13.val(),
+          time2: area14.val(),
+          time3: area15.val(),
+          time4: area16.val(),
+          time5: area17.val()
+        }
+        console.log(user)
+        localStorage.setItem("userValues", JSON.stringify(user))
+      })
 
+      function renderPlans() {
+        if (localStorage.getItem("userValues") !== null) {
+          var saveData = JSON.parse(localStorage.getItem("userValues"))
+          area9.text(saveData.time9)
+          area10.text(saveData.time10)
+          area11.text(saveData.time11)
+          area12.text(saveData.time12)
+          area13.text(saveData.time1)
+          area14.text(saveData.time2)
+          area15.text(saveData.time3)
+          area16.text(saveData.time4)
+          area17.text(saveData.time5)
+        }
+      }
+
+      renderPlans();
+        
     </script>
   </body>
 </html>
