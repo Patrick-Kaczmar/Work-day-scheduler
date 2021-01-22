@@ -92,14 +92,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <script>
-      // setting the current date to the header <p> tag with the id of currentDay
+      // setting the current date to the header <p> tag with the id of "currentDay"
       var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
       $("#currentDay").text((days[(new Date()).getDay()]) + ", " + (months[(new Date()).getMonth()]) + " " + (new Date().getDate()))
 
       // changes the background color of the text fields as the hour changes
       var currentHour = new Date().getHours()
-      // create variables linked to each textarea tag
+      // create variables linked to each "textarea" tag
       var area9 = ($("#9"))
       var area10 = ($("#10"))
       var area11 = ($("#11"))
@@ -111,7 +111,7 @@
       var area17 = ($("#17"))
       // creates a array of all the variables that were just made
       var hourArray = [area9, area10, area11, area12, area13, area14, area15, area16, area17]
-      // loops through all the variables and checks if their data index is greater, lessthan or equal to the current hour and assigns the appropriet class 
+      // loops through all the variables and checks if their data index is greater, lessthan or equal to the current hour and assigns the appropriate class 
       for (i = 0; i < hourArray.length; i++) {
         if (parseInt(hourArray[i].attr("data-index")) < currentHour) {
           hourArray[i].addClass("past")
@@ -124,9 +124,14 @@
         }
       }
 
+
+      // gets the local storage item if there is one and sets the value of the userInput array 
       function renderPlans() {
+
         if (localStorage.getItem("plans")) {
           userInput = JSON.parse(localStorage.getItem("plans"))
+
+          // sets the text of each textarea to the index of the userInput array
           area9.text(userInput[0])
           area10.text(userInput[1])
           area11.text(userInput[2])
@@ -139,13 +144,22 @@
         }
       }
 
+
+      // array with 9 index values to match the amount of text areas
       var userInput = ["", "", "", "", "", "", "", "", "",]
 
+
+      // click handeler that calls a funtion when any button is clicked
       $(".saveBtn").on("click", function() {
+        // gets the data number of the button that was clicked and gives it the variable n
         var n = $(this).attr("data-number")
+        // creates a variable that selects the textarea next to the button that was clicked
         var activeField = hourArray[n]
+        // gets the value inside the selected textarea written by the user
         var user = $(activeField).val()
+        // sets the value of user to the corresponding index number of userInput array
         userInput[n] = user
+        // saves the values of userInput array to local storage
         localStorage.setItem("plans", JSON.stringify(userInput))
       })
 
