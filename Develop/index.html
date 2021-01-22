@@ -35,55 +35,55 @@
       <div id="row1" class="row">
         <h2 class="hour">  9AM</h2>
         <textarea id="9" data-index="9" class="inp-width"></textarea>
-        <button class="saveBtn">SAVE PLANS</button>
+        <button data-number="0" class="saveBtn">SAVE PLANS</button>
       </div>
 
       <div id="row2" class="row">
         <h2 class="hour">10AM</h2>
         <textarea id="10" data-index="10" class="inp-width"></textarea>
-        <button class="saveBtn">SAVE PLANS</button>
+        <button data-number="1" class="saveBtn">SAVE PLANS</button>
       </div>
 
       <div id="row3" class="row">
         <h2 class="hour">11AM</h2>
         <textarea id="11" data-index="11" class="inp-width"></textarea>
-        <button class="saveBtn">SAVE PLANS</button>
+        <button data-number="2" class="saveBtn">SAVE PLANS</button>
       </div>
 
       <div id="row4" class="row">
         <h2 class="hour">12PM</h2>
         <textarea id="12" data-index="12" class="inp-width"></textarea>
-        <button class="saveBtn">SAVE PLANS</button>
+        <button data-number="3" class="saveBtn">SAVE PLANS</button>
       </div>
 
       <div id="row5" class="row">
         <h2 class="hour">  1PM</h2>
         <textarea id="13" data-index="13" class="inp-width"></textarea>
-        <button class="saveBtn">SAVE PLANS</button>
+        <button data-number="4" class="saveBtn">SAVE PLANS</button>
       </div>
 
       <div id="row6" class="row">
         <h2 class="hour">  2PM</h2>
         <textarea id="14" data-index="14" class="inp-width"></textarea>
-        <button class="saveBtn">SAVE PLANS</button>
+        <button data-number="5" class="saveBtn">SAVE PLANS</button>
       </div>
 
       <div id="row7" class="row">
         <h2 class="hour">  3PM</h2>
         <textarea id="15" data-index="15" class="inp-width"></textarea>
-        <button class="saveBtn">SAVE PLANS</button>
+        <button data-number="6" class="saveBtn">SAVE PLANS</button>
       </div>
 
       <div id="row8" class="row">
         <h2 class="hour">  4PM</h2>
         <textarea id="16" data-index="16" class="inp-width"></textarea>
-        <button class="saveBtn">SAVE PLANS</button>
+        <button data-number="7" class="saveBtn">SAVE PLANS</button>
       </div>
 
       <div id="row9" class="row">
         <h2 class="hour">  5PM</h2>
         <textarea id="17" data-index="17" class="inp-width"></textarea>
-        <button class="saveBtn">SAVE PLANS</button>
+        <button data-number="8" class="saveBtn">SAVE PLANS</button>
       </div>
       <!-- Timeblocks end here -->
     </div>
@@ -98,10 +98,6 @@
       $("#currentDay").text((days[(new Date()).getDay()]) + ", " + (months[(new Date()).getMonth()]) + " " + (new Date().getDate()))
 
       // changes the background color of the text fields as the hour changes
-      var txt1 = $("#9")
-      var txtClass = $(".inp-width")
-      console.log(parseInt($("textarea").attr("data-index")))
-      console.log(new Date().getHours())
       var currentHour = new Date().getHours()
       // create variables linked to each textarea tag
       var area9 = ($("#9"))
@@ -117,7 +113,6 @@
       var hourArray = [area9, area10, area11, area12, area13, area14, area15, area16, area17]
       // loops through all the variables and checks if their data index is greater, lessthan or equal to the current hour and assigns the appropriet class 
       for (i = 0; i < hourArray.length; i++) {
-        console.log(hourArray[i])
         if (parseInt(hourArray[i].attr("data-index")) < currentHour) {
           hourArray[i].addClass("past")
         }
@@ -129,39 +124,32 @@
         }
       }
 
-      $(".saveBtn").on("click", function(event) {
-        var user = {
-          time9: area9.val(),
-          time10: area10.val(),
-          time11: area11.val(),
-          time12: area12.val(),
-          time1: area13.val(),
-          time2: area14.val(),
-          time3: area15.val(),
-          time4: area16.val(),
-          time5: area17.val()
-        }
-        console.log(user)
-        localStorage.setItem("userValues", JSON.stringify(user))
-      })
-
       function renderPlans() {
-        if (localStorage.getItem("userValues") !== null) {
-          var saveData = JSON.parse(localStorage.getItem("userValues"))
-          area9.text(saveData.time9)
-          area10.text(saveData.time10)
-          area11.text(saveData.time11)
-          area12.text(saveData.time12)
-          area13.text(saveData.time1)
-          area14.text(saveData.time2)
-          area15.text(saveData.time3)
-          area16.text(saveData.time4)
-          area17.text(saveData.time5)
+        if (localStorage.getItem("plans")) {
+          userInput = JSON.parse(localStorage.getItem("plans"))
+          area9.text(userInput[0])
+          area10.text(userInput[1])
+          area11.text(userInput[2])
+          area12.text(userInput[3])
+          area13.text(userInput[4])
+          area14.text(userInput[5])
+          area15.text(userInput[6])
+          area16.text(userInput[7])
+          area17.text(userInput[8])
         }
       }
 
-      renderPlans();
-        
+      var userInput = ["", "", "", "", "", "", "", "", "",]
+
+      $(".saveBtn").on("click", function() {
+        var n = $(this).attr("data-number")
+        var activeField = hourArray[n]
+        var user = $(activeField).val()
+        userInput[n] = user
+        localStorage.setItem("plans", JSON.stringify(userInput))
+      })
+
+      renderPlans()
     </script>
   </body>
 </html>
