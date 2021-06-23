@@ -7,3 +7,4 @@ This application uses both Jquery and javascript inside the HTML file to interac
 ## Link to the Work day scheduler - https://patrick-kaczmar.github.io/Work-day-scheduler/
 
 ![website-preview](Assets/05-third-party-apis-homework-demo.gif)
+
